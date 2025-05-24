@@ -3,6 +3,7 @@ package org.aritra.ecommerce_fancyshop.Controller;
 import lombok.RequiredArgsConstructor;
 import org.aritra.ecommerce_fancyshop.Entity.Product;
 import org.aritra.ecommerce_fancyshop.Repository.ProductRepository;
+import org.aritra.ecommerce_fancyshop.Service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,9 @@ import java.util.List;
 @RequiredArgsConstructor // instead of Using Constructor
 public class ProductController {
 
-    private final ProductRepository productRepository;
+
+
+    private final IProductService iproductService;
 
     //Constructor Injection
     /*@Autowired
@@ -32,7 +35,9 @@ public class ProductController {
 
     @GetMapping("/findAll")
     public List<Product> getAllProducts(){
-       List<Product> productList= productRepository.findAll();
+        List<Product> productList =iproductService.getProducts();
+
+//       List<Product> products = productRepository.findAll();
        return productList;
     }
 
