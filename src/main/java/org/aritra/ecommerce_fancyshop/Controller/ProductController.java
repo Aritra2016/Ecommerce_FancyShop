@@ -34,10 +34,9 @@ public class ProductController {
     }
 
     @GetMapping("/findAll")
-    public List<Product> getAllProducts(){
+    public List<Product> getAllProducts(){ //We need to use DTO pattern to transfer data safely
         List<Product> productList =iproductService.getProducts();
-
-//       List<Product> products = productRepository.findAll();
+        //  List<Product> products = productRepository.findAll();
        return productList;
     }
 
